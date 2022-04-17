@@ -56,9 +56,47 @@ contract('EthSwap', async([deployer, investor])=>{
             ethSwapBalance = await web3.eth.getBalance(ethSwap.address)
             assert.equal(ethSwapBalance.toString(), web3.utils.toWei('1', 'Ether'))
 
-            console.log(result.log)
+            const events = await result.logs[0].args
+      
+            assert.equal(events.account, investor)
+            assert.equal(events.token, token.address)
+            assert.equal(events.amount.toString(), tokens('100').toString())
+            assert.equal(events.rate.toString(), '100')
         })
     })
+
+    describe('Sell tokens', async () =>{
+        let result
+
+        before(async()=>{
+           await token.approve(ethSwap.address, tokens('100'), {from: investor})
+           result = await ethSwap.sellTokens(tokens('100'), {from: investor })
+        })
+        it('allow users sell tokens', async () => {
+           let investorBalance = await token.balanceOf(investor)
+           assert.equal(investorBalance.toString(), tokens('0'))
+
+           let ethSwapBalance;
+           ethSwapBalance = await token.balanceOf(ethSwap.address)
+           assert.equal(ethSwapBalance.toString(), tokens('1000000'))
+
+           ethSwapBalance = await web3.eth.getBalance(ethSwap.address)
+           assert.equal(ethSwapBalance.toString(), web3.utils.toWei('0', 'Ether'))
+
+           const events = await result.logs[0].args
+      
+           assert.equal(events.account, investor)
+           assert.equal(events.token, token.address)
+           assert.equal(events.amount.toString(), tokens('100').toString())
+           assert.equal(events.rate.toString(), '100')
+
+           await ethSwap.sellTokens(tokens('500'), {from: investor}).should.be.rejected;
+        })
+
+    })
+
+
+   
 })
 
 
