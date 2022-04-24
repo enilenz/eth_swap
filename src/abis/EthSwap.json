@@ -4771,6 +4771,94 @@
     "version": "0.6.0+commit.26b70077.Emscripten.clang"
   },
   "networks": {
+    "1337": {
+      "events": {
+        "0x6faf93231a456e552dbc9961f58d9713ee4f2e69d15f1975b050ef0911053a7b": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "rate",
+              "type": "uint256"
+            }
+          ],
+          "name": "TokensPurchased",
+          "type": "event"
+        },
+        "0x697c42d55a5e1fed3f464ec6f38b32546a0bd368dc8068b065c67566d73f3290": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "account",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "address",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "amount",
+              "type": "uint256"
+            },
+            {
+              "indexed": false,
+              "internalType": "uint256",
+              "name": "rate",
+              "type": "uint256"
+            }
+          ],
+          "name": "TokensSold",
+          "type": "event"
+        },
+        "0x9e384945d94bbc7b670a0321ece0f105c8971503917136515c1267baef0b3d76": {
+          "anonymous": false,
+          "inputs": [
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "description",
+              "type": "string"
+            },
+            {
+              "indexed": false,
+              "internalType": "string",
+              "name": "value",
+              "type": "string"
+            }
+          ],
+          "name": "justStrings",
+          "type": "event"
+        }
+      },
+      "links": {},
+      "address": "0x05e405CCDa00b78ADfFDbA7A793713734C9dBf7c",
+      "transactionHash": "0x9882a0b7cf705b290def1e008af47bbf1f02e55f097f22c9f8094e00bc2c33b1"
+    },
     "5777": {
       "events": {
         "0x6faf93231a456e552dbc9961f58d9713ee4f2e69d15f1975b050ef0911053a7b": {
@@ -4856,12 +4944,12 @@
         }
       },
       "links": {},
-      "address": "0x48949f024D0114E660D1CadCE7C08e95684B4B1c",
-      "transactionHash": "0x482afe8a87b1b79955d45d6f10bda0b8ed32dbbe8ac7707e6c890f028d406831"
+      "address": "0x4831DA33637a36991603a3d013061C56b7de1030",
+      "transactionHash": "0x297eb865df6fbd0236efc507b06f9ccc6dc1d0d274c5555efb4439c178e285f0"
     }
   },
   "schemaVersion": "3.0.23",
-  "updatedAt": "2022-04-16T10:38:41.491Z",
+  "updatedAt": "2022-04-23T14:07:03.650Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}
